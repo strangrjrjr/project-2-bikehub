@@ -4,8 +4,8 @@ class CreateRides < ActiveRecord::Migration[6.0]
       t.integer :user_id
       t.integer :bike_id
       t.text :description
-      t.integer :distance
-      t.float :elevation_gain
+      t.float :distance
+      t.float :duration
       t.string :map
 
       t.timestamps

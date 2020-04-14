@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2020_04_14_001538) do
     t.integer "user_id"
     t.integer "bike_id"
     t.text "description"
-    t.integer "distance"
-    t.float "elevation_gain"
+    t.float "distance"
+    t.float "duration"
     t.string "map"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
