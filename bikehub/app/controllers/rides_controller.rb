@@ -18,20 +18,22 @@ class RidesController < ApplicationController
 
     def show
         @ride = Ride.find(params[:id])
+        @user = User.find(@ride.user_id)
+        @bike = Bike.find(@ride.bike_id)
     end
 
-    def edit
-        @ride = Ride.find(params[:id])
-    end
+    # def edit
+    #     @ride = Ride.find(params[:id])
+    # end
 
-    def update
-        @ride = Ride.find(params[:id])
-        if @ride.update(ride_params)
-            redirect_to @ride
-        else
-            render :edit
-        end
-    end
+    # def update
+    #     @ride = Ride.find(params[:id])
+    #     if @ride.update(ride_params)
+    #         redirect_to @ride
+    #     else
+    #         render :edit
+    #     end
+    # end
 
     private
 

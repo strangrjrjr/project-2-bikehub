@@ -3,20 +3,26 @@
 <h3>Bikes</h3>
 <ul>
     <% @bikes.each do |bike| %>
-        <li><%= image_tag "#{bike.image_url}" %> <%= "#{bike.manufacturer_name} #{bike.frame_model}" %><%= button_to "Delete", action: "bike#delete" %></li>
+        <li><%= image_tag bike.image_url %> <%= "#{bike.manufacturer_name} #{bike.frame_model}" %> </li>
     <% end %>
 </ul>
+<%= button_to "Add a bike", action: "bike#new"%>
 
 <h3>Rides</h3>
+<% if @rides.empty? %>
+    <p>No rides recorded!</p>
+<% end %>
 <ul>
     <% @rides.each do |ride| %>
         <li><%= link_to ride.id, ride %></li>
     <% end %>
 </ul>
 
-<h3>Comments</h3>
-<ul>
-    <% @comments.each do |comment| %>
-        <li><%= link_to comment.title, comment %></li>
-    <% end %>
-</ul>
+<%# button to add ride %>
+<%= button_to "Add a ride", action: "ride#new" %>
+<%# button to add bike %>
+
+<%# button to remove bike %>
+<%= button_to "Remove a bike", action: "bike#destroy"%>
+<%# button to delete account %>
+<%= button_to "DELETE ACCOUNT", action: "destroy"%>

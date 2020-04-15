@@ -38,7 +38,9 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        
+        @user = User.find(params[:id])
+        # destroy all UserBike instances
+        # destroy user
     end
 
     private

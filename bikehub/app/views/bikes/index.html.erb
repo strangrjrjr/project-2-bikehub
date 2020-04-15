@@ -1,0 +1,7 @@
+<h1>Bike Index</h1>
+
+
+<% @bikes.each do |bike| %>
+    <%= image_tag "#{bike.image_url}" %><br>
+    <p><%= "#{bike.manufacturer_name} #{bike.frame_model}"%><p><br>
+<% end %>
