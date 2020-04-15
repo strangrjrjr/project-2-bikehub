@@ -37,7 +37,7 @@ class BikesController < ApplicationController
     def destroy
         @bike = Bike.find(params[:bike_id])
         @user = User.find(params[:id])
-        UserBike.find_by
+        # UserBike.find_by
 
     end
 

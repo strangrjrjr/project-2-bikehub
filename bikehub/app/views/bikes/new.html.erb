@@ -1,0 +1,10 @@
+<h1>Create a Bike</h1>
+<%= form_for @bike do |f| %>
+    <%= f.label "Manufacturer Name" %>
+    <%= f.text_field :manufacturer_name %><br>
+    <%= f.label "Frame Mode"%>
+    <%= f.text_field :frame_model %><br>
+    <%= f.label "Image URL" %>
+    <%= f.text_field :image_url %>
+    <%= f.submit "Update Bike" %>
+<% end %>

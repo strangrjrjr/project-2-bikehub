@@ -1,12 +1,16 @@
 <h1><%= "#{@user.username}'s Profile"%></h1>
 
+<h3>Profile:</h3>
+<p><%= "#{@user.profile}"%></p>
+
+
 <h3>Bikes</h3>
 <ul>
     <% @bikes.each do |bike| %>
         <li><%= image_tag bike.image_url %> <%= "#{bike.manufacturer_name} #{bike.frame_model}" %> </li>
     <% end %>
 </ul>
-<%= button_to "Add a bike", action: "bike#new"%>
+<%= button_to "Add a bike", new_bike_path, method: :get %>
 
 <h3>Rides</h3>
 <% if @rides.empty? %>
@@ -18,11 +22,4 @@
     <% end %>
 </ul>
 
-<%# button to add ride %>
-<%= button_to "Add a ride", action: "ride#new" %>
-<%# button to add bike %>
-
-<%# button to remove bike %>
-<%= button_to "Remove a bike", action: "bike#destroy"%>
-<%# button to delete account %>
-<%= button_to "DELETE ACCOUNT", action: "destroy"%>
+<%= button_to "Add a ride", new_ride_path, method: :get %>

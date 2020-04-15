@@ -1,0 +1,13 @@
+<h1>Welcome to BikeHub</h1>
+
+<h3>Here's where everyone is riding</h3>
+<% @rides.each do |ride| %>
+    <p><%= link_to ride.id, ride %>
+    <%= "User #{ride.user.username} : #{ride.description}"%></p>
+<% end %>
+
+<h3>Leaderboard</h3>
+coming soon...<br><br>
+
+<%= button_to "Login", login_path, method: :get %>
+<%= button_to "Sign Up", signup_path, method: :get %>

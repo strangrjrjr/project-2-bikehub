@@ -5,7 +5,12 @@ class CommentsController < ApplicationController
     end
 
     def create
-
+        @comment = Comment.new(comment_params)
+        if @comment.save
+            redirect_to rides_path(@comment.ride_id)
+        else
+            render :new
+        end
     end
 
     def edit
@@ -13,6 +18,15 @@ class CommentsController < ApplicationController
     end
 
     def update
+        @comment = Comment.find(params[:id])
+        if @comment.update(comment_params)
+            redirect_to rides_path(@comment.ride_id)
+        else
+            render :edit
+        end
+    end
+
+    def destroy
 
     end
 

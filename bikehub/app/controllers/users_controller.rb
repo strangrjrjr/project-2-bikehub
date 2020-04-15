@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
     
-    # def index
-    #     @users = User.all
-    # end
+    def welcome
+        @rides = Ride.all
+        render :welcome
+    end
 
     def new
         @user = User.new
@@ -40,6 +41,7 @@ class UsersController < ApplicationController
     def destroy
         @user = User.find(params[:id])
         # destroy all UserBike instances
+        @user.destroy
         # destroy user
     end
 
