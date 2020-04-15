@@ -1,11 +1,7 @@
 class CommentsController < ApplicationController
-    
-    def index
-
-    end
 
     def new
-
+        @comment = Comment.new
     end
 
     def create
@@ -13,10 +9,20 @@ class CommentsController < ApplicationController
     end
 
     def edit
-
+        @comment = Comment.find(params[:id])
     end
 
     def update
 
+    end
+
+    def delete
+        
+    end
+
+    private
+
+    def comment_params
+        params.require(:comment).permit(:user_id, :ride_id, :title, :content)
     end
 end

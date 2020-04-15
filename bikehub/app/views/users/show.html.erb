@@ -1,0 +1,22 @@
+<h1><%= "#{@user.username}'s Profile"%></h1>
+
+<h3>Bikes</h3>
+<ul>
+    <% @bikes.each do |bike| %>
+        <li><%= image_tag "#{bike.image_url}" %> <%= "#{bike.manufacturer_name} #{bike.frame_model}" %><%= button_to "Delete", action: "bike#delete" %></li>
+    <% end %>
+</ul>
+
+<h3>Rides</h3>
+<ul>
+    <% @rides.each do |ride| %>
+        <li><%= link_to ride.id, ride %></li>
+    <% end %>
+</ul>
+
+<h3>Comments</h3>
+<ul>
+    <% @comments.each do |comment| %>
+        <li><%= link_to comment.title, comment %></li>
+    <% end %>
+</ul>
