@@ -8,6 +8,7 @@
 
 <h3>Leaderboard</h3>
 coming soon...<br><br>
-
-<%= button_to "Login", login_path, method: :get %>
-<%= button_to "Sign Up", signup_path, method: :get %>
+<% if !session[:user_id]%>
+    <%= button_to "Login", login_path, method: :get %>
+    <%= button_to "Sign Up", signup_path, method: :get %>
+<% end %>

@@ -41,6 +41,7 @@
     <p>Placeholder for source and destination entry</p>
     <p>There will be some cool API magic here one day</p>
     <%= form_for @ride, url: add_ride_path do |f| %>
+        <%= f.hidden_field :user_id, value: session[:user_id] %>
         <%= f.label "Trusty Steed:"%>
         <%= f.collection_select(:bike_id, @user.bikes, :id, :frame_model)%><br>
         <%= f.label "Description:" %>

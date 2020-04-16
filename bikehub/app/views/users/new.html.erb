@@ -5,5 +5,8 @@
     <%= f.text_field :username %><br>
     <%=f.label "Profile"%>
     <%= f.text_area :profile %>
+    <%= f.label "Password:" %>
+    <%= f.password_field :password %>
+    <%= f.password_field :password_confirmation %>
     <%=f.submit %>
 <% end %>

@@ -63,12 +63,13 @@ class UsersController < ApplicationController
     def add_ride
         user_id = session[:user_id]
         Ride.create(user_id: user_id, bike_id: params[:ride][:bike_id], description: params[:ride][:description], distance: params[:ride][:distance], duration: params[:ride][:duration], map: "")
+        redirect_to user_path(user_id)
     end
 
     private
 
     def user_params
-        params.require(:user).permit(:username, :profile)
+        params.require(:user).permit(:username, :profile, :password, :password_confirmation)
     end
 
 end

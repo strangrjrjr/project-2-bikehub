@@ -11,5 +11,11 @@
 
   <body>
     <%= yield %>
+    <%= button_to "Home", root_path %>
+    <%= button_to "Rides Index", all_rides_path %>
+    <% if session[:user_id] %>
+      <%= button_to "Profile", profile_path(session[:user_id]) %>
+      <%= button_to "Logout", logout_path %>
+    <% end %>
   </body>
 </html>

@@ -13,7 +13,7 @@ Comment.destroy_all
 
 # Users
 10.times do
-    User.create(username: Faker::Esport.unique.player, profile: "Bike gud")
+    User.create(username: Faker::Esport.unique.player, profile: "Bike gud", password: Faker::Internet.password)
 end
 
 # Bikes, pulled from BikeIndex API

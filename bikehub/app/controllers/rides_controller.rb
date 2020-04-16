@@ -25,24 +25,10 @@ class RidesController < ApplicationController
 
     def ride_comment
         user_id = session[:user_id]
-       
-        Comment.create(user_id: user_id, ride_id: params[:id], title: params[:comment][:title], content: params[:comment][:content])
+        Comment.create(user_id: session[:user_id], ride_id: params[:id], title: params[:comment][:title], content: params[:comment][:content])
         redirect_to ride_path(params[:id])
-        #byebug
+        
     end
-
-    # def edit
-    #     @ride = Ride.find(params[:id])
-    # end
-
-    # def update
-    #     @ride = Ride.find(params[:id])
-    #     if @ride.update(ride_params)
-    #         redirect_to @ride
-    #     else
-    #         render :edit
-    #     end
-    # end
 
     private
 
