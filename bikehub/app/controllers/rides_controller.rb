@@ -20,7 +20,9 @@ class RidesController < ApplicationController
         @ride = Ride.find(params[:id])
         @user = User.find(@ride.user_id)
         @bike = Bike.find(@ride.bike_id)
-        @comment = Comment.new
+        if session[:user_id]
+            @comment = Comment.new
+        end
     end
 
     def ride_comment

@@ -15,9 +15,9 @@
 <%# form to add a new comment %>
 <% if @comment%>
     <%= form_for @comment, url: ride_comment_path do |f| %>
-        <%= f.label "Title" %>
-        <%= f.text_field :title %>
-        <%= f.label "Content" %>
+        <%= f.label "Title:" %>
+        <%= f.text_field :title %><br><br>
+        <%= f.label "Content:" %>
         <%= f.text_area :content %>
         <%= f.submit %>
     <% end %>

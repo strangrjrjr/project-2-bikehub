@@ -4,52 +4,60 @@
 <p><%= "#{@user.profile}"%></p>
 
 
-
-<h3>Bikes</h3>
-<% if @bikes.empty?%>
-    <p>No bikes! Add to your stable.</p>
-<% end %>
-<ul>
-    <% @bikes.each do |bike| %>
-        <li><%= image_tag bike.image_url, size: "100x100" %> <%= "#{bike.manufacturer_name} #{bike.frame_model}" %> </li>
-    <% end %>
-</ul>
-<% if @authorized %>
-    <h3>Add a bike</h3>
-    <%= form_for @bike, url: add_bike_path do |f| %>
-        <%= f.label "Manufacturer Name" %>
-        <%= f.text_field :manufacturer_name %><br>
-        <%= f.label "Frame Model" %>
-        <%= f.text_field :frame_model %><br>
-        <%= f.label "Image URL"%>
-        <%= f.text_field :image_url %><br>
-        <%= f.submit %>
-    <% end %>
-<% end %>
-
-<h3>Rides</h3>
-<% if @rides.empty? %>
-    <p>No rides recorded!</p>
-<% end %>
-<ul>
-    <% @rides.each do |ride| %>
-        <li><%= link_to ride.id, ride %></li>
-    <% end %>
-</ul>
-<% if @authorized %>
-    <h3>Add a ride</h3>
-    <p>Placeholder for source and destination entry</p>
-    <p>There will be some cool API magic here one day</p>
-    <%= form_for @ride, url: add_ride_path do |f| %>
-        <%= f.hidden_field :user_id, value: session[:user_id] %>
-        <%= f.label "Trusty Steed:"%>
-        <%= f.collection_select(:bike_id, @user.bikes, :id, :frame_model)%><br>
-        <%= f.label "Description:" %>
-        <%= f.text_area :description %><br>
-        <%= f.label "Distance in Meters:" %>
-        <%= f.number_field :distance %><br>
-        <%= f.label "Duration in Seconds (for now)"%>
-        <%= f.number_field :duration %><br>
-        <%= f.submit %>
-    <% end %>
-<% end %>
+<div class="split left">
+    <div class="centered">
+        <h3>Bikes</h3>
+        <% if @bikes.empty?%>
+            <p>No bikes! Add to your stable.</p>
+        <% end %>
+        <ul>
+            <% @bikes.each do |bike| %>
+                <li><%= image_tag bike.image_url, size: "100x100" %> <%= "#{bike.manufacturer_name} #{bike.frame_model}" %> </li>
+            <% end %>
+        </ul>
+        <% if @authorized %>
+            <h3>Add a bike</h3>
+            <%= form_for @bike, url: add_bike_path do |f| %>
+                <%= f.label "Manufacturer Name" %>
+                <%= f.text_field :manufacturer_name %><br>
+                <%= f.label "Frame Model" %>
+                <%= f.text_field :frame_model %><br>
+                <%= f.label "Image URL"%>
+                <%= f.text_field :image_url %><br>
+                <%= f.submit %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+<div class="split right">
+    <div class="centered">
+        <h3>Rides</h3>
+        <% if @rides.empty? %>
+            <p>No rides recorded!</p>
+        <% end %>
+        <ul>
+            <% @rides.each do |ride| %>
+                <li><%= link_to ride.id, ride %></li>
+            <% end %>
+        </ul>
+        <% if @authorized %>
+            <h3>Add a ride</h3>
+            <p>Placeholder for source and destination entry</p>
+            <p>There will be some cool API magic here one day</p>
+            <%= form_for @ride, url: add_ride_path do |f| %>
+                <%= f.hidden_field :user_id, value: session[:user_id] %>
+                <%= f.label "Trusty Steed:"%>
+                <%= f.collection_select(:bike_id, @user.bikes, :id, :frame_model)%><br>
+                <%= f.label "Description:" %>
+                <%= f.text_area :description %><br>
+                <%= f.label "Distance in Meters:" %>
+                <%= f.number_field :distance %><br>
+                <%= f.label "Duration in Seconds (for now)"%>
+                <%= f.number_field :duration %><br>
+                <%= f.submit %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+<br>
+<br>

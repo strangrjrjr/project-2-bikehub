@@ -4,12 +4,19 @@
     <%= button_to "Sign Up", signup_path, method: :get %>
 <% end %>
 
-<h3>Here's where everyone is riding</h3>
-<% @rides.each do |ride| %>
-    <p><%= link_to ride.id, ride %>
-    <%= "User #{ride.user.username} : #{ride.description}"%></p>
-<% end %>
+<div class="split left">
+    <div class="centered">
+        <h3>Here's where everyone is riding</h3>
+        <% @rides.each do |ride| %>
+            <p><%= link_to ride.id, ride %>
+            <%= "User #{ride.user.username} : #{ride.description}"%></p>
+        <% end %>
+    </div>
+</div>
 
-<h3>Leaderboard</h3>
-coming soon...<br><br>
-</table>
+<div class="split right">
+    <div class="centered">
+        <h3>Leaderboard</h3>
+        coming soon...<br><br>
+    </div>
+</div>

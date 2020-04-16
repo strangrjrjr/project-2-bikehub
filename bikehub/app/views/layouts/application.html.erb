@@ -11,7 +11,7 @@
 
   <body>
   <table id="menu">
-    <tr><%= image_tag "/app/assets/images/bike.png", size: "150x88"%></tr>
+   
     <tr id="button_wrapper"><%= button_to "Home", root_path %></tr>
     <tr id="button_wrapper"><%= button_to "Rides Index", all_rides_path %></tr>
     <% if session[:user_id] %>
@@ -20,7 +20,6 @@
     <% end %>
   </table>
     <%= yield %>
-  
   </body>
   <footer class="bottom_bar">
       Made with great pain by strangrjrjr.
