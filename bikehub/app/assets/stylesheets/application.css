@@ -12,4 +12,18 @@
  *
  *= require_tree .
  *= require_self
+ *= require_bootstrap
  */
+
+ .bottom_bar {
+    background-color: grey;
+    text-align: middle;
+ }
+ #menu {
+     padding: 10;
+ }
+ #button_wrapper {
+    border-collapse: separate; 
+    border-spacing: 10px;
+    padding: 10px;
+ }

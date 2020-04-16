@@ -10,12 +10,19 @@
   </head>
 
   <body>
-    <%= yield %>
-    <%= button_to "Home", root_path %>
-    <%= button_to "Rides Index", all_rides_path %>
+  <table id="menu">
+    <tr><%= image_tag "http://res.publicdomainfiles.com/pdf_view/2/13493565617304.png", size: "150x88"%></tr>
+    <tr id="button_wrapper"><%= button_to "Home", root_path %></tr>
+    <tr id="button_wrapper"><%= button_to "Rides Index", all_rides_path %></tr>
     <% if session[:user_id] %>
-      <%= button_to "Profile", profile_path(session[:user_id]) %>
-      <%= button_to "Logout", logout_path %>
+      <tr id="button_wrapper"><%= button_to "Profile", profile_path(session[:user_id]) %></tr>
+      <tr id="button_wrapper"><%= button_to "Logout", logout_path %></div></tr>
     <% end %>
+  </table>
+    <%= yield %>
+  
   </body>
+  <footer class="bottom_bar">
+      Made with great pain by strangrjrjr.
+  </footer>
 </html>

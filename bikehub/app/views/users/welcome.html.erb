@@ -1,4 +1,8 @@
 <h1>Welcome to BikeHub</h1>
+<% if !session[:user_id]%>
+    <%= button_to "Login", login_path, method: :get %>
+    <%= button_to "Sign Up", signup_path, method: :get %>
+<% end %>
 
 <h3>Here's where everyone is riding</h3>
 <% @rides.each do |ride| %>
@@ -8,7 +12,4 @@
 
 <h3>Leaderboard</h3>
 coming soon...<br><br>
-<% if !session[:user_id]%>
-    <%= button_to "Login", login_path, method: :get %>
-    <%= button_to "Sign Up", signup_path, method: :get %>
-<% end %>
+</table>
