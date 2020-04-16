@@ -1,0 +1,8 @@
+<h1><%= flash[:message] %></h1>
+<%= form_for :session do |f| %>
+    <%= f.label "Username" %>
+    <%= f.text_field :username %>
+    <%= f.submit "Login"%>
+<% end %>
+
+<%= button_to "Sign up", new_user_path, method: :get %>

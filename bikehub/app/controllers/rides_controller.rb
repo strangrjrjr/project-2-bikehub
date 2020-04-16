@@ -24,8 +24,7 @@ class RidesController < ApplicationController
     end
 
     def ride_comment
-        user_id = 36
-        # user id from session[:user_id]
+        user_id = session[:user_id]
        
         Comment.create(user_id: user_id, ride_id: params[:id], title: params[:comment][:title], content: params[:comment][:content])
         redirect_to ride_path(params[:id])
