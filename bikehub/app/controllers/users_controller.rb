@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            session[:user_id] = @user.id
             redirect_to @user
         else
             render :new
@@ -19,9 +20,14 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(session[:user_id])
-        @bike = Bike.new
-        @ride = Ride.new
+        @user = User.find(params[:id])
+        if @user.id == session[:user_id]
+            @authorized = true
+            @bike = Bike.new
+            @ride = Ride.new
+        else
+            @authorized = false
+        end
         @bikes = @user.bikes
         @rides = @user.rides
     end
@@ -56,7 +62,7 @@ class UsersController < ApplicationController
 
     def add_ride
         user_id = session[:user_id]
-        Ride.create()
+        Ride.create(user_id: user_id, bike_id: params[:ride][:bike_id], description: params[:ride][:description], distance: params[:ride][:distance], duration: params[:ride][:duration], map: "")
     end
 
     private

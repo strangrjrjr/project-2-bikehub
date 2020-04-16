@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: 'users#welcome'
   resources :comments, only: [:new, :edit]
-  resources :rides, only: [:new, :index, :show]
-  resources :bikes
+  resources :rides, only: [:index, :show]
+  resources :bikes, only: [:index]
   resources :users
 
   post '/rides/:id', to: 'rides#ride_comment', as: 'ride_comment'
@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
+  get '/logout', to: 'session#destroy', as: 'logout'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
