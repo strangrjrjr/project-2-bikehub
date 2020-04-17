@@ -1,7 +1,9 @@
 <h1>Welcome to BikeHub</h1>
 <% if !session[:user_id]%>
-    <%= button_to "Login", login_path, method: :get %>
-    <%= button_to "Sign Up", signup_path, method: :get %>
+    <table>
+        <tr><%= button_to "Login", login_path, method: :get %></tr>
+        <tr><%= button_to "Sign Up", signup_path, method: :get %></tr>
+    </table>
 <% end %>
 
 <div class="split left">

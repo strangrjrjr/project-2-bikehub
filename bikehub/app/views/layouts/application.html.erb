@@ -10,15 +10,14 @@
   </head>
 
   <body>
-  <table id="menu">
-   
-    <tr id="button_wrapper"><%= button_to "Home", root_path %></tr>
-    <tr id="button_wrapper"><%= button_to "Rides Index", all_rides_path %></tr>
-    <% if session[:user_id] %>
-      <tr id="button_wrapper"><%= button_to "Profile", profile_path(session[:user_id]) %></tr>
-      <tr id="button_wrapper"><%= button_to "Logout", logout_path %></div></tr>
-    <% end %>
-  </table>
+   <table>
+      <tr><%= button_to "Home", root_path %></tr>
+      <tr><%= button_to "Rides Index", all_rides_path %></tr>
+      <% if session[:user_id] %>
+        <tr><%= button_to "Profile", profile_path(session[:user_id]) %></tr>
+        <tr><%= button_to "Logout", logout_path %></tr>
+      <% end %>
+    </table>
     <%= yield %>
   </body>
   <footer class="bottom_bar">
