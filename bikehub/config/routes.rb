@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :rides, only: [:index, :show]
   resources :bikes, only: [:index]
   resources :users
+
   post '/', to: 'users#welcome', as: 'root_path'
+  get '/', to: 'users#welcome'
+
   post '/users/:id', to: 'users#show', as: 'profile'
   post '/rides/new', to: 'users#add_ride', as: 'add_ride'
   post '/rides/:id', to: 'rides#ride_comment', as: 'ride_comment'
